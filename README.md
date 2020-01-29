@@ -6,63 +6,59 @@ Project Specification
 
 Here is the definition of NUMEX's syntax:
 
- If 𝑠 is a Racket string, then (var 𝑠) is a NUMEX expression (variables).
- If 𝑛 is a Racket integer, then (num 𝑛) is a NUMEX expression (number constants).
- If 𝑏 is a Racket boolean, then (bool 𝑏) is a NUMEX expression (boolean constants).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (plus 𝑒1 𝑒2) is a NUMEX expression (addition).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (minus 𝑒1 𝑒2) is a NUMEX expression
-(subtraction).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (mult 𝑒1 𝑒2) is a NUMEX expression
-(multiplication).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (div 𝑒1 𝑒2) is a NUMEX expression (division).
- If 𝑒1 is a NUMEX expression, then (neg 𝑒1) is a NUMEX expression (negation).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (andalso 𝑒1 𝑒2) is a NUMEX expression (logical
-conjunction).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (orelse 𝑒1 𝑒2) is a NUMEX expression (logical
-disjunction).
- If 𝑒1, 𝑒2, and 𝑒3 are NUMEX expressions, then (cnd 𝑒1 𝑒2 𝑒3) is a NUMEX expression. It is a
+- If 𝑠 is a Racket string, then (var 𝑠) is a NUMEX expression (variables).
+- If 𝑛 is a Racket integer, then (num 𝑛) is a NUMEX expression (number constants).
+- If 𝑏 is a Racket boolean, then (bool 𝑏) is a NUMEX expression (boolean constants).
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (plus 𝑒1 𝑒2) is a NUMEX expression (addition).
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (minus 𝑒1 𝑒2) is a NUMEX expression (subtraction).
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (mult 𝑒1 𝑒2) is a NUMEX expression (multiplication).
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (div 𝑒1 𝑒2) is a NUMEX expression (division).
+- If 𝑒1 is a NUMEX expression, then (neg 𝑒1) is a NUMEX expression (negation).
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (andalso 𝑒1 𝑒2) is a NUMEX expression (logical conjunction).
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (orelse 𝑒1 𝑒2) is a NUMEX expression (logical disjunction).
+- If 𝑒1, 𝑒2, and 𝑒3 are NUMEX expressions, then (cnd 𝑒1 𝑒2 𝑒3) is a NUMEX expression. It is a
 condition where the result is 𝑒2 if 𝑒1 is true, else the result is 𝑒3. Only one of 𝑒2 and 𝑒3 is
 evaluated.
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (iseq 𝑒1 𝑒2) is a NUMEX expression.
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (iseq 𝑒1 𝑒2) is a NUMEX expression.
 (comparison).
- If 𝑒1, 𝑒2, and 𝑒3 are NUMEX expressions, then (ifnzero 𝑒1 𝑒2 𝑒3) is a NUMEX expression.
+- If 𝑒1, 𝑒2, and 𝑒3 are NUMEX expressions, then (ifnzero 𝑒1 𝑒2 𝑒3) is a NUMEX expression.
 It is a condition where the result is 𝑒2 if 𝑒1 is not zero, else the result is 𝑒3. Only one of
 𝑒2 and 𝑒3 is evaluated.
- If 𝑒1, 𝑒2, 𝑒3, and 𝑒4 are NUMEX expressions, then (ifleq 𝑒1 𝑒2 𝑒3 𝑒4) is a NUMEX
+- If 𝑒1, 𝑒2, 𝑒3, and 𝑒4 are NUMEX expressions, then (ifleq 𝑒1 𝑒2 𝑒3 𝑒4) is a NUMEX
 expression. It is a conditional where the result is 𝑒4 if 𝑒1 is strictly greater than 𝑒2, else
 the result is 𝑒3. Only one of 𝑒3 and 𝑒4 is evaluated.
- If 𝑠1 and 𝑠2 are Racket strings and 𝑒 is a NUMEX expression, then (lam 𝑠1 𝑠2 𝑒) is a
+- If 𝑠1 and 𝑠2 are Racket strings and 𝑒 is a NUMEX expression, then (lam 𝑠1 𝑠2 𝑒) is a
 NUMEX expression (a function). In 𝑒, 𝑠1 is bound to the function itself (for recursion) and
 𝑠2 is bound to the only argument. Also, (lam null 𝑠2 𝑒) is allowed for anonymous
 nonrecursive functions.
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (apply 𝑒1 𝑒2) is a NUMEX expression (function
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (apply 𝑒1 𝑒2) is a NUMEX expression (function
 application).
- If 𝑠 is a Racket string, and 𝑒1 and 𝑒2 are NUMEX expressions, then (with 𝑠 𝑒1 𝑒2) is a
+- If 𝑠 is a Racket string, and 𝑒1 and 𝑒2 are NUMEX expressions, then (with 𝑠 𝑒1 𝑒2) is a
 NUMEX expression (a let expression where the value of 𝑒1 is bound to 𝑠 in 𝑒2).
- If 𝑒1 and 𝑒2 are NUMEX expressions, then (apair 𝑒1 𝑒2) is a NUMEX expression (pair
+- If 𝑒1 and 𝑒2 are NUMEX expressions, then (apair 𝑒1 𝑒2) is a NUMEX expression (pair
 constructor).
- If 𝑒1 is a NUMEX expression, then (1st 𝑒1) is a NUMEX expression (the first part of a
+- If 𝑒1 is a NUMEX expression, then (1st 𝑒1) is a NUMEX expression (the first part of a
 pair).
- If 𝑒1 is a NUMEX expression, then (2nd 𝑒1) is a NUMEX expression (the second part of a
+- If 𝑒1 is a NUMEX expression, then (2nd 𝑒1) is a NUMEX expression (the second part of a
 pair).
- (munit) is a NUMEX expression (holding no data, much like () in ML or null in Racket).
+- (munit) is a NUMEX expression (holding no data, much like () in ML or null in Racket).
 Notice (munit) is a NUMEX expression, but munit is not.
- If 𝑒1 is a NUMEX expression, then (ismunit 𝑒1) is a NUMEX expression (testing for
+- If 𝑒1 is a NUMEX expression, then (ismunit 𝑒1) is a NUMEX expression (testing for
 (munit)).
- (closure 𝑒𝑛𝑣 𝑓) is a NUMEX value where 𝑓 is a NUMEX function and 𝑒𝑛𝑣 is an
+- (closure 𝑒𝑛𝑣 𝑓) is a NUMEX value where 𝑓 is a NUMEX function and 𝑒𝑛𝑣 is an
 environment that maps variables to values. Closures do not appear in programs; they
 result from evaluating functions.
- If 𝑠1 is a Racket string and 𝑠2 is a Racket string and 𝑒1 is a NUMEX expression and 𝑒2 is
+- If 𝑠1 is a Racket string and 𝑠2 is a Racket string and 𝑒1 is a NUMEX expression and 𝑒2 is
 NUMEX expression and 𝑒3 is a NUMEX expression, then (letrec 𝑠1 𝑒1 𝑠2 𝑒2 𝑒3) is a
 NUMEX expression (a letrec expression for recursive definitions where the the value of
 𝑒1 is bound to 𝑠1 and the value of 𝑒2 is bound to 𝑠2 in the 𝑒3).
- If s is a Racket string and e is a NUMEX expression, then (key s e) is a NUMEX
+- If s is a Racket string and e is a NUMEX expression, then (key s e) is a NUMEX
 expression (key contructor).
- If k is a NUMEX key and m is a NUMEX munit, then (record k m) is a NUMEX
+- If k is a NUMEX key and m is a NUMEX munit, then (record k m) is a NUMEX
 expression (record contructor).
- If k is a NUMEX key and r is a NUMEX record, then (record k r) is a NUMEX
+- If k is a NUMEX key and r is a NUMEX record, then (record k r) is a NUMEX
 expression (record constructor).
- If s is a Racket string and r is a NUMEX record, then (value s r) is a NUMEX expression
+- If s is a Racket string and r is a NUMEX record, then (value s r) is a NUMEX expression
 (value of string in record).
 
 A NUMEX 𝑣𝑎𝑙𝑢𝑒 is a NUMEX number constant, a NUMEX boolean constant, a NUMEX closure, a
@@ -94,58 +90,58 @@ In your interpreter, use a Racket list of Racket pairs to represent this environ
 (which is initially empty) so that you can use the envlookup function, after completing
 it. Here is a description of the semantics of NUMEX expressions:
 
- All values (including closures) evaluate to themselves. For example, (eval-exp
+- All values (including closures) evaluate to themselves. For example, (eval-exp
 (num 17)) would return (num 17), not 17.
- A variable evaluates to the value associated with it in the given environment.
- An arithmetic operation (addition, subtraction, multiplication, and division) evaluates
+- A variable evaluates to the value associated with it in the given environment.
+- An arithmetic operation (addition, subtraction, multiplication, and division) evaluates
 to the result of what its operands evaluate to. Note: the operands must be numbers.
- A logical operation (andalso and orelse) evaluates to the result of what its operands
+- A logical operation (andalso and orelse) evaluates to the result of what its operands
 evaluate to. Note: short-circuit evaluations are desired, and the operands must be
 booleans.
- A negation (neg 𝑒) evaluates to the opposite (negation) of what 𝑒 evaluates to.
+- A negation (neg 𝑒) evaluates to the opposite (negation) of what 𝑒 evaluates to.
 Note: 𝑒 can be a number or a boolean.
- For (cnd 𝑒1 𝑒2 𝑒3), the expression 𝑒1 first evaluates to a boolean value. If the
+- For (cnd 𝑒1 𝑒2 𝑒3), the expression 𝑒1 first evaluates to a boolean value. If the
 resulting value is (bool #t), the whole expression evaluates to what 𝑒2 evaluates to.
 The expression evaluates to the value of 𝑒3 otherwise.
- The evaluation of (iseq 𝑒1 𝑒2) involves the evaluation of 𝑒1 and 𝑒2. The resulting
+- The evaluation of (iseq 𝑒1 𝑒2) involves the evaluation of 𝑒1 and 𝑒2. The resulting
 values is (bool #t) if the value of 𝑒1 equals to the value of 𝑒2. Otherwise, the
 expression evaluates to (bool #f). Note: 𝑒1 and 𝑒2 can be numbers/booleans.
- For (ifnzero 𝑒1 𝑒2 𝑒3), the expression 𝑒1 first evaluates to a value. If the resulting
+- For (ifnzero 𝑒1 𝑒2 𝑒3), the expression 𝑒1 first evaluates to a value. If the resulting
 value is not zero, the whole expression evaluates to what 𝑒2 evaluates to. The
 expression evaluates to the value of 𝑒3 otherwise.
- The evaluation of (ifleq 𝑒1 𝑒2 𝑒3 𝑒4) involves the evaluation of 𝑒1 and 𝑒2. If the value
+- The evaluation of (ifleq 𝑒1 𝑒2 𝑒3 𝑒4) involves the evaluation of 𝑒1 and 𝑒2. If the value
 of 𝑒1 is strictly greater than the value of 𝑒3, then it evaluates to the value of 𝑒4.
 Otherwise, 𝑒3 must be evaluated.
- For (with 𝑠 𝑒1 𝑒2), the expression 𝑒2 evaluates to a value in an environment
+- For (with 𝑠 𝑒1 𝑒2), the expression 𝑒2 evaluates to a value in an environment
 extended to map the name 𝑠 to the evaluated value of 𝑒1.
- Functions are lexically scoped in the sense that a function evaluates to a closure
+- Functions are lexically scoped in the sense that a function evaluates to a closure
 holding the function and the current environment.
- For (apply 𝑒1 𝑒2), the expression 𝑒1 first evaluates to a value. If the resulting value is
+- For (apply 𝑒1 𝑒2), the expression 𝑒1 first evaluates to a value. If the resulting value is
 not a closure, an error should be arisen. Otherwise, it evaluates the closure's
 function's body in the closure's environment extended to map the function's name
 to the closure (unless the name field is null) and the function's argument to the
 result of the evaluation of 𝑒2.
- The (apair 𝑒1 𝑒2) construct makes a (new) pair holding the results of the
+- The (apair 𝑒1 𝑒2) construct makes a (new) pair holding the results of the
 evaluations of 𝑒1 and 𝑒2.
- If the result of evaluating 𝑒1 in (1st 𝑒1) is an apair, then the first part is returned.
+- If the result of evaluating 𝑒1 in (1st 𝑒1) is an apair, then the first part is returned.
 Otherwise, it returns an error. Similarly, the evaluation of (2nd 𝑒1) is the second
 part of the given pair.
- For (ismunit 𝑒1), the expression 𝑒1 first evaluates to a value. If the resulting value is
+- For (ismunit 𝑒1), the expression 𝑒1 first evaluates to a value. If the resulting value is
 a munit expression, then the result is the NUMEX value (bool #t), else it is the
 NUMEX value (bool #f).
- For (letrec 𝑠1 𝑒1 𝑠2 𝑒2 𝑒3) the expression 𝑒3 evaluates to a value in an environment
+- For (letrec 𝑠1 𝑒1 𝑠2 𝑒2 𝑒3) the expression 𝑒3 evaluates to a value in an environment
 extended to map the name 𝑠1 to the evaluated value of 𝑒1 and the name 𝑠2 to the
 evaluated value of 𝑒2.
- If s is a Racket string and the result of evaluating e is a NUMEX expression, the (key
+- If s is a Racket string and the result of evaluating e is a NUMEX expression, the (key
 s e) construct makes a key holding corresponding value of s which is e. Otherwise, it
 returns an error.
- If the result of evaluating k is a key and the result of evaluating m is a munit, the
+- If the result of evaluating k is a key and the result of evaluating m is a munit, the
 (record k m) construct makes a record holding the result of the evaluation of k and
 the result of the evaluation of m. Otherwise, it returns an error.
- If the result of evaluating k is a key and the result of evaluating r is a record, the
+- If the result of evaluating k is a key and the result of evaluating r is a record, the
 (record k r) construct makes a record holding the results of the evaluation of k and
 the evaluation of r. Otherwise, it returns an error.
- If the result of evaluating s is a string and the result of evaluating r is a record, the
+- If the result of evaluating s is a string and the result of evaluating r is a record, the
 (value s r) returns corresponding value of s in r. If s does not exist in r, the (value s
 r) returns (munit). Otherwise, it returns an error.
 
