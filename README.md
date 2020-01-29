@@ -1,5 +1,5 @@
 # NUMEX-Interpreter
-Creating a sample interpreter with Racket.
+Creating a simple interpreter with Racket.
 
 Design and Implementation of Programming Languages
 Project Specification
