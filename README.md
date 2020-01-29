@@ -1,10 +1,7 @@
 # NUMEX-Interpreter
-Creating a simple interpreter with Racket.
+Design and Implementation a simple interpreter NUMEX programming language with Racket.
 
-Design and Implementation of Programming Languages
-Project Specification
-
-Here is the definition of NUMEX's syntax:
+Definition of NUMEX's syntax:
 
 - If 𝑠 is a Racket string, then (var 𝑠) is a NUMEX expression (variables).
 - If 𝑛 is a Racket integer, then (num 𝑛) is a NUMEX expression (number constants).
